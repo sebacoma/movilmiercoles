@@ -8,13 +8,17 @@
     <ion-content class="ion-padding">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>{{ usuario.name }}</ion-card-title>
+          <ion-card-title>{{ usuario.firstName}} {{ usuario.lastName}}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <ion-list>
             <ion-item>
               <ion-label>Email:</ion-label>
               <ion-text>{{ usuario.email }}</ion-text>
+            </ion-item>
+            <ion-item>
+              <ion-label>descripcion:</ion-label>
+              <ion-text>{{ usuario.description }}</ion-text>
             </ion-item>
             <ion-item>
               <ion-label>Estudios:</ion-label>
@@ -49,7 +53,7 @@ onMounted(async () => {
   // Realizar solicitud a la API con Axios
   console.log('a');
   try {
-    const response = await axios.get('http://localhost:3000/yo');
+    const response = await axios.get('http://localhost:3000/api/profile');
     // Asignar los datos obtenidos a la variable 'usuario'
     usuario.value = response.data[0];
     console.log(usuario.value.email);
